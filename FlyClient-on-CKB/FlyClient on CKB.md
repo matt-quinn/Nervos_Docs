@@ -352,32 +352,32 @@ byte32[64] 	MMR_PEAKS;
 uint8 		HIGHEST_PEAK;
 
 main(byte32[] _input){
-	for(uint32 i=0; i < _input.length; i++){		//add each value to the MMR
+	for(uint32 i=0; i < _input.length; i++){	//add each value to the MMR
 		_mmrHash(_input[i], 0);
 		}
-	_bagPeaks();						//create linked list of peaks
+	_bagPeaks();					//create linked list of peaks
 }
 
 _mmrHash(byte32 _input, uint8 _height){
-	if(MMR_PEAKS[_height] != 0){				//value exists at this height
-		byte32 memHashVal = MMR_PEAKS[_height];		//store current value at this height
-        MMR_PEAKS[_height] = 0;					//clear current value at this height
-        _mmrHash(blake2b(memHashVal,_input), _height++);	//recursive call up the tree
-    } else {							//value is blank at this level   
-		MMR_PEAKS[_height] = _input;			//store current value at this height
+	if(MMR_PEAKS[_height] != 0){			//value exists at this height
+		byte32 memHashVal = MMR_PEAKS[_height];	//store current value at this height
+        MMR_PEAKS[_height] = 0;				//clear current value at this height
+        _mmrHash(blake2b(memHashVal,_input), _height++);//recursive call up the tree
+    } else {						//value is blank at this level   
+		MMR_PEAKS[_height] = _input;		//store current value at this height
         if(_height > HIGHEST_PEAK){
-			HIGHEST_PEAK = _height;			//update HIGHEST_PEAK
+			HIGHEST_PEAK = _height;		//update HIGHEST_PEAK
         	}
     }
 }
 
-_bagPeaks(){							//linked list of peaks(MMR root)(ascending)
+_bagPeaks(){						//linked list of peaks(MMR root)(ascending)
 	byte32 memMMRRoot;
 	for(uint8 i=0; i <= HIGHEST_PEAK; i++){
 		if(MMR_PEAKS[i] != 0) {
 			memMMRRoot = blake2b(memMMRRoot,MMR_PEAKS[i]);
 			}
 		}
-	MMR_ROOT = memMMRRoot;					//set MMR Root
+	MMR_ROOT = memMMRRoot;				//set MMR Root
 }
 ```
