@@ -66,7 +66,7 @@ The NIPoPoW protocol creates an authenticated data structure referred to as a "s
 
 This structure contains interlinks of blocks exceeding the difficulty target, ordered on different levels according to how many bits they exceed the difficulty target by. All blocks exceeding target difficulty by 1 bit would be linked together on level 1, 2 bit on level 2, 3-bit on level 3 and so on (demonstrated below). A hash of the current value of the entire structure would be included in the block header of each block. 
 
-![super chain](.\superchain.png)
+![](./superchain.png)
 
 **2.1.3 Attacking superchain quality**
 
@@ -323,7 +323,7 @@ Block inclusion proofs: 432,000 bytes (500 * 27 * 32) (inclusion proofs up to 13
 
 **A.3 Total 538,000 bytes** (likely lower as upper leaves can be cached)
 
-![flyclient blocks queried](.\flyclient blocks queried.PNG)
+![flyclient blocks queried](./flyclient-blocks-queried.PNG)
 
 ​	*Only "Queries" line and left y-axis (BLOCKS QUERIED) is relevant to A.3 (from FlyClient paper)*
 
