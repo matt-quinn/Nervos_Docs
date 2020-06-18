@@ -256,10 +256,9 @@ _addToMMR(byte32 _blockHash, uint128 _difficulty, uint8 _height){
     }
 }
 
-_bagPeaks(){                                 //create linked list of peaks(MMR root)(ascend)
+_bagPeaks(){                                 //create linked list of peaks(MMR root)(ascending)
     byte32 memMMRvalue;   
     for(uint8 i=0; i <= HIGHEST_PEAK; i++){
- 
         if(MMR_PEAKS[i] != 0) {
             memMMRvalue = blake2b(memMMRvalue, MMR_PEAKS[i].peakValue, MMR_PEAKS[i].accumDifficulty);
             }
