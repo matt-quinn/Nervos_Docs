@@ -223,7 +223,7 @@ main(){
         }   
     
     _bagPeaks();                                    //create linked list of peaks
-	PREVIOUS_BLOCK = memBlockNumber;                //store last block number added to MMR
+    PREVIOUS_BLOCK = memBlockNumber;                //store last block number added to MMR
 }
 
 _addToMMR(byte32 _blockHash, uint128 _difficulty, uint8 _height){
