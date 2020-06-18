@@ -14,7 +14,7 @@ Background information:
 
 
 
-### 1. Super-light clients
+## 1. Super-light clients
 
 A properly designed light client protocol will prevent adversaries from including invalid (fake) blocks that could be used to deceive a light client into following an alternate chain of the same length (or difficulty) as that of the honest chain. 
 
@@ -24,7 +24,7 @@ Super-light clients allows for sub-linear verification of the work expended to p
 
 
 
-### 2. Choosing FlyClient over NIPoPoW
+## 2. Choosing FlyClient over NIPoPoW
 
 As the base of a super-light client, FlyClient is a straightforward choice over NIPoPoW for three reasons:
 
@@ -52,7 +52,7 @@ The cell contains the following fields:
 
 - struct              MMR_PEAK {
 
-  ​    byte32        peakValue                           //root of sub-tree
+  ​    byte32        peakValue                   //root of sub-tree
 
   ​    uint128       accumulatedDifficulty      //accumulated difficulty of MMR nodes below peak
 
@@ -96,7 +96,7 @@ This technique produces proofs of about 2 megabytes, more information about proo
 
 
 
-### 4. Deviations from FlyClient
+## 4. Deviations from FlyClient
 
 **4.1 Verification of Difficulty Adjustments**
 
@@ -155,7 +155,6 @@ Transaction inclusion in commitment root proof (288 bytes) (9*32) max estimate (
 **A.1 total 1,725 bytes**									
 
 
-
 **A.2 Intermediate block headers** 
 
 `header_deps` can only be used after 4 epoch confirmations. (4) 4 hour epochs, min block time 7 seconds:
@@ -176,7 +175,7 @@ Transaction inclusion in commitment root proof (288 bytes) (9*32) max estimate (
 
 
 
-![flyclient blocks queried](.\flyclient blocks queried.PNG)
+![flyclient blocks queried](./flyclient-blocks-queried.PNG)
 
 ​	*Only "Queries" line and left y-axis (BLOCKS QUERIED) is relevant to A.3 (from FlyClient paper)*
 
