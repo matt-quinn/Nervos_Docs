@@ -9,8 +9,8 @@ A soft fork could resolve these issues without changing the foundation of the sy
 Background information:
 
 - [Introduction to Light Clients](https://medium.com/@m.quinn/introduction-to-light-clients-5f5dc122fe3c)
-- [Introduction to super-light client: NIPoPoW](https://medium.com/@m.quinn/introduction-to-super-light-clients-nipopows-da8cf3914a8a) (link)
-- [Introduction to super-light client: FlyClient](https://medium.com/@m.quinn/introduction-to-super-light-clients-flyclient-12dbd28f72a9) (link)
+- [Introduction to super-light client: NIPoPoW](https://medium.com/@m.quinn/introduction-to-super-light-clients-nipopows-da8cf3914a8a)
+- [Introduction to super-light client: FlyClient](https://medium.com/@m.quinn/introduction-to-super-light-clients-flyclient-12dbd28f72a9)
 
 
 
