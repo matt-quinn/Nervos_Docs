@@ -4,7 +4,7 @@ These are ideas to support a super-light client for CKB, allowing for sub-linear
 
 The key advantage of this design is that it requires no changes to existing mining software or consensus rules and can be implemented immediately. On the negative side, it does rely on processing of transactions to keep contract data updated and is also subject to censorship attacks by miners. 
 
-A soft fork could resolve these issues without changing the foundation of the system and also substantially decrease proof size (blocks can be immediately added to the MMR, eliminating SPV-style verification for blocks added within the last 4 epochs that not yet available through `header_deps`).
+A soft fork could resolve these issues without changing the foundation of the system and also substantially decrease proof size (blocks can be immediately added to the MMR, eliminating SPV-style verification for blocks added within the most recent 4 epochs not yet available through `header_deps`).
 
 Background information:
 
