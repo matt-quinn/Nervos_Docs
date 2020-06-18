@@ -110,7 +110,7 @@ Fortunately, difficulty raising attacks are impractical when difficulty is adjus
 
 **4.2 Checking MMR commitments in sampled blocks**
 
-FlyClient prescribes that a proof be provided that each sampled block commits to a valid subtree of the latest MMR commitment, however this design outlined in stores MMR commitments in transactions. There is no certainty that a sampled block will contain a MMR commitment and the proposed design omits this aspect of FlyClient.
+FlyClient prescribes that a proof be provided that each sampled block commits to a valid subtree of the latest MMR commitment, however this design stores MMR commitments in transactions. There is no certainty that a sampled block will contain a MMR commitment and the proposed design omits this aspect of FlyClient.
 
 *Confirmation is needed that these deviations would not cause implementation or security issues.*
 
