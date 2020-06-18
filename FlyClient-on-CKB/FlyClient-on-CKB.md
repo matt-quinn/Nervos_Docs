@@ -235,8 +235,8 @@ _addToMMR(byte32 _blockHash, uint128 _difficulty, uint8 _height){
         uint128 memAccumDifficulty;
        
         //hash together existing peak and new leaf, add their difficulty values
-        memBlockHash = blake2b(MMR_PEAKS[_height].peakValue, _input.peakValue);
-        memAccumDifficulty = MMR_PEAKS[_height].accumDifficulty + input.accumDifficulty;
+        memBlockHash = blake2b(MMR_PEAKS[_height].peakValue, MMR_PEAKS[_height].accumDifficulty, _blockHash, _difficulty);
+        memAccumDifficulty = MMR_PEAKS[_height].accumDifficulty + _difficulty;
         
         //clear existing peak data at this height
         MMR_PEAKS[_height].peakValue = 0;			 
