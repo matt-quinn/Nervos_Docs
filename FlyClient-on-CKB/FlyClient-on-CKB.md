@@ -120,7 +120,7 @@ FlyClient prescribes that a proof be provided that each sampled block commits to
 
 ### Appendix A: Proof size estimates
 
-An estimate for proof size summed from the data below is **2,284,182 bytes**. Proofs consist of 3 elements:
+An estimate for proof size summed from the data below is **1,553,125 bytes**. Proofs consist of 3 elements:
 
 1. Previous commitment transaction, block header and transaction inclusion proof
 2. Block headers between commitment transaction and current chain tip. 
