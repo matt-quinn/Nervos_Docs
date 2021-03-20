@@ -1,6 +1,6 @@
 # Transaction-based FlyClient on CKB
 
-These are ideas to support a super-light client for CKB, allowing for sub-linear verification of CKB's proof of work (compared to verifying all block headers) without any consensus changes. The design makes use of an on-chain contract to implement a [FlyClient](https://eprint.iacr.org/2019/226.pdf) MMR and produces proofs of CKB transaction inclusion in about 2 megabytes.
+These are ideas to support a super-light client for CKB, allowing for sub-linear verification of CKB's proof of work (compared to verifying all block headers) without any consensus changes. The design makes use of an on-chain contract to implement a [FlyClient](https://eprint.iacr.org/2019/226.pdf) MMR and produces proofs of CKB transaction inclusion in about 1.5 megabytes.
 
 The key advantage of this design is that it requires no changes to existing mining software or consensus rules and can be implemented immediately. On the negative side, it does rely on processing of transactions to keep contract data updated and is also subject to censorship attacks by miners. 
 
@@ -120,7 +120,7 @@ FlyClient prescribes that a proof be provided that each sampled block commits to
 
 ### Appendix A: Proof size estimates
 
-An estimate for proof size summed from the data below is **2,284,182 bytes**. Proofs consist of 3 elements:
+An estimate for proof size summed from the data below is **1,553,125 bytes**. Proofs consist of 3 elements:
 
 1. Previous commitment transaction, block header and transaction inclusion proof
 2. Block headers between commitment transaction and current chain tip. 
@@ -130,7 +130,7 @@ An estimate for proof size summed from the data below is **2,284,182 bytes**. Pr
 
 **A.1 Commitment transaction, block header and inclusion proof**
 
-Block header that transaction was committed (212 bytes)
+Block header that transaction was committed (208 bytes)
 
 <u>Commitment transaction</u>
 
@@ -157,19 +157,19 @@ Transaction inclusion in commitment root proof (288 bytes) (9*32) max estimate (
 
 **A.2 Intermediate block headers** 
 
-`header_deps` can only be used after 4 epoch confirmations. (4) 4 hour epochs, min block time 7 seconds:
+`header_deps` can only be used after 4 epoch confirmations, max block length of epoch is 1800:
 
-((4 *4 hours) * 3600 seconds)  /  7 second min block time = 8,228 block headers (upper bound)
+4 * 1800 = 7,200 block headers (upper bound)
 
-8,228  * 212 = 1,744,457 bytes
+7,200  * 208 = 1,497,600 bytes
 
-**A.2 total: 1,744,457 bytes** (upper bound)
+**A.2 total: 1,497,600 bytes** (upper bound)
 
 
 
 **A.3 FlyClient MMR commitment block inclusion proofs (max ~500 blocks)**
 
-​     Sampled block headers: 106,000 bytes (500 * 212)
+​     Sampled block headers: 104,000 bytes (500 * 208)
 
 ​     Block inclusion proofs: 432,000 bytes (500 * 27 * 32) (inclusion proofs up to 134 million blocks) 
 
@@ -183,7 +183,7 @@ Transaction inclusion in commitment root proof (288 bytes) (9*32) max estimate (
 
 
 
-**Total A.1-A.3 = 2,284,182 bytes**
+**Total A.1-A.3 = 1,553,125 bytes**
 
 
 
